@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        /* mini pagina basica modo oscuro -- modo claro */
+
+        function cambiarTitulo(){
+            document.getElementById('titulo').innerHTML="Hello World";
+        }
+
+        function cambiarColor(){
+            const elementos=document.getElementsByClassName('mensaje');
+            for(var i=0; i<elementos.length; i++) {
+                elementos[i].style.color="blue";             
+            }
+        }
+
+        function resaltar(){
+            const zonas=document.querySelector(".zona");
+            zonas.style.backgroundColor='yellow';
+
+        }
+        function marcarTareas(){
+            const tareas= document.querySelectorAll(".tarea");
+            tareas.forEach((tarea, index)  =>{
+                tarea.innerText=`✅${tarea.innerText}`;
+            });//dos variables7 '${tarea.innerText}' variable
+        }
+        var marca=0;
+        function marcarSoloUnaTarea(){
+            const tareas= document.querySelectorAll(".solotUnaTarea");
+            if(marca < tareas.length){
+                tareas[marca].innerText=`✅${tareas[marca].innerText}`;
+                marca++;
+                
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Selectores (.class  #id etiqueta) y metodos de acceso al DOM</h1>
+    <h2 id="titulo">BIENVENIDOS LEVN401</h2>
+    <input type="button" value="Cambiar Titulo" onclick="cambiarTitulo()">
+
+    <hr>
+
+    <p class="mensaje">Primer Parrafo</p>
+    <p class="mensaje">Segundo Parrafo</p>
+    <p class="mensaje">Tercer Parrafo</p>
+    <input type="button" value="Cambiar Color" onclick="cambiarColor()">
+
+    <hr>
+    <section class="zona">Zona1</section>
+    <section class="zona">Zona2</section>
+    <input type="button" value="Resaltar" onclick="resaltar()">
+
+    <hr>
+    <ul>
+        <li class="tarea">Lavar platos</li>
+        <li class="tarea">Limpiar Casa</li>
+        <li class="tarea">Sacar la Basura</li>
+    </ul>
+    <input type="button" value="hacer" onclick="marcarTareas()">
+
+    
+    <hr>
+    <h4>Solo una tarea</h4>
+    <ul>
+        <li class="solotUnaTarea">Lavar platos</li>
+        <li class="solotUnaTarea">Limpiar Casa</li>
+        <li class="solotUnaTarea">Sacar la Basura</li>
+    </ul>
+    <input type="button" value="hacer" onclick="marcarSoloUnaTarea()">
+    
+</body>
+</html>
